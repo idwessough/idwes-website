@@ -1,36 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
+<!--#include virtual="navbar.html" -->
 
 <head>
     <meta charset="UTF-8">
     <title>iD Website</title>
     <link rel="icon" type="image/jpg" href="../assets/images/favicon.png" />
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css"> <!-- CSS Stylesheet -->
+    <link rel="os_style" href="css/os_style.css">
+    <link rel="play_style" href="css/play_style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollReveal.js/4.0.9/scrollreveal.js" integrity="sha512-XJgPMFq31Ren4pKVQgeD+0JTDzn0IwS1802sc+QTZckE6rny7AN2HLReq6Yamwpd2hFe5nJJGZLvPStWFv5Kww==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
+<!--[if (lt IE 9)]><script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.helper.ie8.js"></script><![endif]-->
 </head>
 
 <body>
-    <header>  
-        <div class="header-text">
-            <h1>Hi, I'm <span class="name">iDwes</span></h1>
-            <h2>Data Scientist</h2>
-        </div>
-
-        <!-- NavBar called by JavaScript-->
-        <script src="navbar.js"></script>
-        <!--Define the navbar container, Include the JavaScript code that fetches the navbar and inserts it into the container -->
-        <div id="navbar"></div>
-
+    <header>
+ 
     </header>
-
-    <section
-        style="background-image: url(../assets/images/projects_background_simple_design.png); background-size: cover; background-position: center; background-repeat: no-repeat;">
-        <div class="projects-section">
-            <h1>Projects Done</span></h1>
-            <a id="ProjectLink" ><img src="../assets/images/projects.png" alt="MyProjects">My Projects</a>
-            <h2>Data</h2>
+    
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <img src="../assets/images/favicon_rgbs.svg" alt="Logo">
         </div>
-    </section>
+        <ul class="navbar-nav">
+            <li class="nav-item drop">
+                <a href="Projects.html" class="nav-link">Projects</a>
+                <div class="dropdown">
+                    <a href="#">DataLake</a>
+                    <a href="#">Data Science</a>
+                    <a href="#">Autonomous Vehicle</a>
+                    <a href="#">My Game</a>
+                </div>
+            </li>
+            <li class="nav-item drop">
+                <a href="Travels.html" class="nav-link">Travels</a>
+                <div class="dropdown">
+                    <a href="#">Japan</a>
+                    <a href="#">Canada</a>
+                    <a href="#">Malaysia</a>
+                    <a href="#">Bali</a>
+                    <a href="#">Singapore</a>
+                    <a href="#">United States</a>
+                    <a href="#">Tenerife</a>
+                    <a href="#">Spain</a>
+                    <a href="#">Greece</a>
+                    <a href="#">Italy</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">My Game</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Contact</a>
+            </li>
+        </ul>
+</nav> 
+ 
+      
+    <section class="card-container" id="card-container">
+        <div class="slider">
+          <div class="card" data-tilt>
+            <div class="content">
+              <img src="../assets/images/projects_background.png" alt="" />
+              <h1>DataLakes: </h1>
+              <p>
+                A bigger part of my projects where I was involved is building companies DataLake to store their data efficiently on the Cloud.
+              </p>
+              <button href="Projects.html" class="btn btn-grad">
+                <span>Learn More</span>
+                <ion-icon name="arrow-forward-outline"></ion-icon>
+              </button>
+            </div>
+          </div>
+  
+          <div class="card" data-tilt>
+            <div class="content">
+              <img src="../assets/images/BearOxygen_Travel_icon_3d_Depth_of_Field_Shaders_RTX_TXAA_iDesign.png" alt="" />
+              <h1>Forecast of electric consumption</h1>
+              <p>
+                How to forecast the a time series based on thousands of parameters and features.
+              </p>
+              <button class="btn btn-grad">
+                <span>Learn More</span>
+                <ion-icon name="arrow-forward-outline"></ion-icon>
+              </button>
+            </div>
+          </div>
+  
+          <div class="card" data-tilt>
+            <div class="content">
+              <img src="../assets/images/Valley_of_life_painting_sunset_beatiful_iDesign.png" alt="" />
+              <h1>My Game</h1>
+              <p>
+                Dive into "iDecision: Resource Harvest," a showcase of my venture into game development. 
+                This strategy game combines critical thinking with resource management in an immersive virtual environment.
+                <!-- iDecision: Resource Harvest – A Strategic Gaming Odyssey
+                A unique section of my website dedicated to my foray into the world of game development. 
+                It unveils a strategy game I've crafted, blending critical thinking and resource management. 
+                It's a virtual playground where players navigate the complexities of resource allocation and strategic decision-making, set in an immersive environment. -->
+            </p>
+              <button class="btn btn-grad">
+                <span>Learn More</span>
+                <ion-icon name="arrow-forward-outline"></ion-icon>
+              </button>
+            </div>
+          </div>
+  
+          <div class="card" data-tilt>
+            <div class="content">
+              <img src="../assets/images/Hogwarts_iDesign.png" alt="" />
+              <h1>Augmented Reality</h1>
+              <p>
+                How I managed the implementation of a brand new technology in a company.
+              </p>
+              <button class="btn btn-grad">
+                <span>Learn More</span>
+                <ion-icon name="arrow-forward-outline"></ion-icon>
+              </button>
+            </div>
+          </div>
+  
+          <div class="card" data-tilt>
+            <div class="content">
+              <img src="../assets/images/favicon_rgbs.svg" alt="" />
+              <h1>GitHub Profile</h1>
+              <p>
+                Here, you'll find an extensive collection of my coding projects, ranging from experimental snippets to full-fledged applications. 
+                Excitingly, you'll also find the source code for this website 
+            </p>
+              <button class="btn btn-grad">
+                <span>Learn More</span>
+                <ion-icon name="arrow-forward-outline"></ion-icon>
+              </button>
+            </div>
+          </div>
+  
+          <div class="card" data-tilt>
+            <div class="content">
+              <img src="../assets/images/background_colors.png" alt="" />
+              <h1>More to come soon !</h1>
+              <p>
+                This website is in construction, content will be available soon....
+              </p>
+              <button class="btn btn-grad">
+                <span>Learn More</span>
+                <ion-icon name="arrow-forward-outline"></ion-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+  
+        <ul class="control" id="custom-control">
+          <li class="prev">
+            <ion-icon class="arrow" name="caret-back-outline"></ion-icon>
+          </li>
+          <li class="next">
+            <ion-icon class="arrow" name="caret-forward-outline"></ion-icon>
+          </li>
+        </ul> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
+          <!-- NOTE: prior to v2.2.1 tiny-slider.js need to be in <body>
+        <script src="vanilla-tilt.js"></script>  -->
+        <script src="navbar_effects.js"></script>
+        <script src="home.js"></script>
+      </section> 
+      
+  <section
+  style="background-image: url(../assets/images/background_colors.png); background-size: cover; background-position: center; background-repeat: no-repeat;">
+
 
 </body>
-
 </html>

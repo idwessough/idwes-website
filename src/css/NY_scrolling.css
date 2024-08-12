@@ -1,0 +1,221 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans&display=swap");
+*, *::before, *::after {
+  padding: 0;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  background-color: #000;
+  color: #000;
+  height: 500vh;
+}
+
+h1, h2 {
+  width: 100%;
+  max-width: 40rem;
+  font-family: "Lobster", cursive;
+}
+h1.center, h2.center {
+  text-align: center;
+}
+
+img {
+  border-radius: 50%;
+}
+
+section {
+  position: fixed;
+  inset: 0;
+  perspective: 1200px;
+  animation: section linear both;
+  animation-duration: auto;
+  animation-timeline: scroll(block root);
+  animation-range: var(--eventRange);
+}
+section *:not(:empty) {
+  transform-style: preserve-3d;
+}
+section:nth-child(1) {
+  --color: hsl(0 75% 75%);
+  --range: 0% 40%;
+  --eventRange: 10% 30%;
+  z-index: 5;
+}
+section:nth-child(2) {
+  --color: hsl(72 75% 75%);
+  --range: 20% 60%;
+  --eventRange: 30% 50%;
+  z-index: 4;
+}
+section:nth-child(3) {
+  --color: hsl(144 75% 75%);
+  --range: 40% 80%;
+  --eventRange: 50% 70%;
+  z-index: 3;
+}
+section:nth-child(4) {
+  --color: hsl(216 75% 75%);
+  --range: 60% 100%;
+  --eventRange: 70% 90%;
+  z-index: 2;
+}
+section:nth-child(5) {
+  --color: hsl(288 75% 75%);
+  --range: 80% 120%;
+  --eventRange: 90% 110%;
+  z-index: 1;
+}
+@keyframes section {
+  0%, 100% {
+    pointer-events: none;
+  }
+  25%, 75% {
+    pointer-events: all;
+  }
+}
+
+.top {
+  display: grid;
+  place-items: center;
+}
+
+.cube {
+  position: absolute;
+  inset: 0;
+  transform-origin: 50% 50% 50vmin;
+  animation: cube ease-out forwards;
+  animation-duration: auto;
+  animation-timeline: scroll(block root);
+  animation-range: 0% 20%;
+  pointer-events: none;
+}
+@keyframes cube {
+  from {
+    transform: translateZ(-12000px) rotateX(60deg) rotateZ(110deg);
+  }
+  to {
+    transform: translateZ(0px) rotateX(0deg) rotateZ(0deg);
+  }
+}
+.cube div {
+  position: absolute;
+  background-color: rgb(68, 122, 151);
+  box-shadow: 0 0 50px #000 inset;
+}
+.cube div:nth-child(1) {
+  left: 0;
+  top: 0;
+  width: 100vmin;
+  height: 100%;
+  transform: rotateY(-90deg);
+  transform-origin: left;
+}
+.cube div:nth-child(2) {
+  right: 0;
+  top: 0;
+  width: 100vmin;
+  height: 100%;
+  transform: rotateY(90deg);
+  transform-origin: right;
+}
+.cube div:nth-child(3) {
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vmin;
+  transform: rotateX(90deg);
+  transform-origin: top;
+}
+.cube div:nth-child(4) {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100vmin;
+  transform: rotateX(-90deg);
+  transform-origin: bottom;
+}
+
+.content {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  background-color: var(--color);
+  background-image: repeating-linear-gradient(#fff3 0 2px, transparent 0 40px), repeating-linear-gradient(90deg, #fff3 0 2px, transparent 0 40px);
+  transform-origin: 50% 50% 50vmin;
+  padding: 2em;
+  font-size: 24px;
+  overflow-y: auto;
+  animation: content cubic-bezier(0, 0, 0, 1) both;
+  animation-duration: auto;
+  animation-timeline: scroll(block root);
+  animation-range: var(--range);
+}
+.top .content {
+  animation-name: topContent;
+}
+@keyframes topContent {
+  0% {
+    transform: translateZ(-12000px) rotateX(60deg) rotateZ(110deg);
+    opacity: 1;
+    animation-timing-function: ease-out;
+  }
+  50% {
+    transform: translateZ(0px) rotateX(0deg) rotateZ(0deg);
+    opacity: 1;
+    animation-timing-function: cubic-bezier(1, 0, 1, 1);
+  }
+  100% {
+    transform: translateZ(1200px) rotateX(0deg) rotateZ(0deg);
+    opacity: 0;
+  }
+}
+@keyframes content {
+  0% {
+    transform: translateZ(-12000px);
+    opacity: 0;
+  }
+  50% {
+    transform: translateZ(0px);
+    opacity: 1;
+    animation-timing-function: cubic-bezier(1, 0, 1, 1);
+  }
+  100% {
+    transform: translateZ(1200px);
+    opacity: 0;
+  }
+}
+.content p {
+  max-width: 40rem;
+}
+
+.buttons {
+  margin-top: 1em;
+}
+.buttons button {
+  font: inherit;
+  padding: 0.5em 1em;
+  background-color: #fff;
+}
+.buttons button:hover {
+  background-color: pink;
+}
+.buttons button:active {
+  background-color: maroon;
+  color: #fff;
+}
+
+.scrollable {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  overscroll-behavior: contain;
+  background-color: #fff7;
+  margin-top: 1em;
+  padding: 1em;
+  max-height: 300px;
+  overflow-y: scroll;
+}

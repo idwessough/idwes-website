@@ -1,0 +1,110 @@
+@font-face {
+    font-display: swap;
+    font-family: 'Technotype34';
+    src: url('https://assets.codepen.io/4175254/Technotype34-Regular.otf');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @function em($pixels) {
+    @if not (unit($pixels) == 'px') {
+      @error 'Value #{$pixels} must have `px` unit.';
+    }
+    
+    @return $pixels / 16px * 1em;
+  }
+  
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5em;
+    min-height: 100vh;
+    font-family: 'Technotype34', sans-serif;
+    background-color: #bbb;
+    background-image: url('https://assets.codepen.io/4175254/ep-133-noise.png');
+    background-size: 80px 80px;
+  }
+  
+  .buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 26em;
+    gap: 1em;
+  }
+  
+  .button {
+    border: em(2px) solid transparent;
+    border-radius: em(2px);
+    background-color: #010101;
+    box-shadow: em(1px) em(1px) em(1px) rgb(255 255 255 / .6);
+    width: 6em;
+  }
+  
+  .button-inside {
+    --background-color: #f05a22;
+    --background-color-active: #ee5529;
+    --light-shadow-color: #ffb147;
+    --dark-shadow-color: #d72d12;
+    --text-color: #fff;
+    display: inline-block;
+    position: relative;
+    border-radius: em(9px);
+    padding: em(10px) em(12px) em(7px);
+    width: 100%;
+    background-color: var(--background-color);
+    background-image: url('https://assets.codepen.io/4175254/ep-133-noise.png');
+    background-size: 80px 80px;
+    box-shadow:
+      inset em(1px) em(1px) em(1px) var(--light-shadow-color),
+      inset em(-1px) em(-1px) em(1px) var(--dark-shadow-color),
+      em(2px) em(2px) em(4px) #000;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    color: var(--text-color);
+    transition-property: transform, background-color, box-shadow;
+    transition-duration: .2s;
+    transition-timing-function: cubic-bezier(.25, .5, .5, 1);
+    
+    .button:active & {
+      transform: scale(.98);
+      background-color: var(--background-color-active);
+      box-shadow:
+        inset 0 0 em(4px) #000,
+        inset em(1px) em(1px) em(1px) transparent,
+        inset em(-1px) em(-1px) em(1px) transparent,
+        em(2px) em(2px) em(4px) transparent;
+    }
+    
+    &.dark-gray {
+      --background-color: #353535;
+      --background-color-active: #313030;
+      --light-shadow-color: #a7a7a7;
+      --dark-shadow-color: #1c1c1c;
+    }
+  
+    &.white {
+      --background-color: #cfcbca;
+      --background-color-active: #b9b5b3;
+      --light-shadow-color: #fafafa;
+      --dark-shadow-color: #646464;
+      --text-color: #010101;
+    }
+    
+    &.light-gray {
+      --background-color: #bcbcbc;
+      --background-color-active: #b1adad;
+      --light-shadow-color: #f7f7f7;
+      --dark-shadow-color: #646464;
+    }
+    
+    &.gray {
+      --background-color: #676767;
+      --background-color-active: #575454;
+      --light-shadow-color: #b8b7b5;
+      --dark-shadow-color: #383838;
+    }
+  }

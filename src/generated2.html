@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enhanced Portfolio</title>
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #121212;
+        color: white;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-width: 1200px;
+        margin: auto;
+        overflow: hidden;
+    }
+    header {
+        background: #1c1c1c;
+        color: #fff;
+        padding-top: 10px;
+        min-height: 80px;
+        border-bottom: #305AFE 3px solid;
+    }
+    header a, header a:visited {
+        color: #fff;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 16px;
+    }
+    header ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        overflow: hidden;
+    }
+    header li {
+        float: left;
+        display: inline;
+        padding: 0 20px 0 20px;
+    }
+    header #branding {
+        float: left;
+    }
+    header #branding h1 {
+        margin: 0;
+        font-size: 2em;
+    }
+    header nav {
+        float: right;
+        margin-top: 10px;
+    }
+    header .highlight, header .current a {
+        color: #4CAF50;
+        font-weight: bold;
+    }
+    header a:hover {
+        color: #2196F3;
+        font-weight: bold;
+    }
+    .carousel {
+        width: 100%;
+        margin: auto;
+        overflow: hidden;
+        padding: 40px 0;
+    }
+    .carousel img {
+        width: 100%;
+        display: block;
+        transition: transform 0.5s ease;
+    }
+    .carousel img:hover {
+        transform: scale(1.05);
+    }
+    .side-pattern {
+        position: absolute;
+        top: 0;
+        width: 100px;
+        height: 100%;
+        background: url('geometric-pattern.png');
+        opacity: 0.2;
+    }
+    .side-pattern.left {
+        left: 0;
+    }
+    .side-pattern.right {
+        right: 0;
+    }
+    .footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 10px 20px;
+    }
+    .footer p {
+        margin: 0;
+    }
+    @media (max-width: 768px) {
+        header ul {
+            padding: 0;
+            background-color: #333;
+            position: absolute;
+            width: 100%;
+            display: none;
+        }
+        header ul li {
+            float: none;
+            width: 100%;
+            text-align: left;
+        }
+        header ul li a {
+            display: block;
+            padding: 10px;
+        }
+        header ul li a:hover {
+            background-color: #555;
+        }
+        header .menu-toggle {
+            display: block;
+            cursor: pointer;
+            font-size: 24px;
+            padding: 10px;
+            color: white;
+            float: right;
+        }
+        header .menu-toggle.close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+    }
+</style>
+</head>
+<body>
+    <header>
+        <!-- Complete header section with navigation and branding -->
+        <div class="container">
+            <div id="branding">
+                <h1><span class="highlight">Creative</span> Portfolio</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li class="current"><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+                <div class="menu-toggle">☰</div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="carousel">
+            <!-- Carousel content -->
+        </section>
+    </div>
+
+    <div class="side-pattern left"></div>
+    <div class="side-pattern right"></div>
+    
+    <footer class="footer">
+        <p>&copy; 2023 Creative Portfolio. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // JavaScript for menu toggle on mobile devices
+        document.addEventListener('DOMContentLoaded', function() {
+            var menuToggle = document.querySelector('.menu-toggle');
+            menuToggle.addEventListener('click', function() {
+                var menu = document.querySelector('header ul');
+                if (menu.style.display === 'block') {
+                    menu.style.display = 'none';
+                    this.textContent = '☰';
+                } else {
+                    menu.style.display = 'block';
+                    this.textContent = '✕';
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
