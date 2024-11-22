@@ -1,0 +1,235 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-image: url('/assets/images/invitation/background/photo_background.png'); /* invitation */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow-x: hidden;
+    height: 100vh; /* Full viewport height */
+}
+
+/* Portrait orientation */
+@media all and (orientation: portrait) {
+    body {
+        background-image: url('/assets/images/invitation/background/mobile_background.webp');
+    }
+}
+
+.photo-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+.floating-photo {
+    position: absolute;
+    width: 20vw;
+    max-width: 200px;
+    height: auto;
+    border-radius: 15px;
+    border: 4px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+    animation: float 6s ease-in-out infinite;
+    /* Custom property for rotation */
+    --rotate-angle: 0deg;
+}
+
+/* Positions and rotations for each photo */
+.floating-photo:nth-child(1) {
+    top: 10%;
+    left: 5%;
+    --rotate-angle: -10deg;
+    --float-distance: 20px;
+}
+
+.floating-photo:nth-child(2) {
+    top: 20%;
+    right: 5%;
+    --rotate-angle: 8deg;
+    --float-distance: 25px;
+}
+
+.floating-photo:nth-child(3) {
+    top: 50%;
+    left: 20%;
+    --rotate-angle: -5deg;
+    --float-distance: 15px;
+}
+
+.floating-photo:nth-child(4) {
+    bottom: 15%;
+    right: 20%;
+    --rotate-angle: 12deg;
+    --float-distance: 30px;
+}
+
+.floating-photo:nth-child(5) {
+    bottom: 20%;
+    left: 15%;
+    --rotate-angle: -7deg;
+    --float-distance: 22px;
+}
+
+/* Floating animation */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(var(--rotate-angle));
+    }
+    50% {
+        transform: translateY(calc(-1 * var(--float-distance))) rotate(var(--rotate-angle));
+    }
+}
+
+/* Center button styling */
+.center-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    text-align: center;
+}
+
+.btn {
+    position: relative;
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 24px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50px;
+    background: linear-gradient(45deg, #ff6f61, #de1d1d);
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.btn:hover {
+    color: #fff;
+    box-shadow: 0 0 20px rgba(255, 111, 97, 0.6);
+    transform: scale(1.05);
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    left: -50%;
+    top: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, transparent 0%, transparent 50%, rgba(255, 255, 255, 0.1) 50%);
+    transform: rotate(45deg);
+    transition: all 0.7s ease;
+}
+
+.btn:hover::before {
+    left: 0%;
+    top: 0%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, transparent 0%, transparent 50%, rgba(255, 255, 255, 0.2) 50%);
+}
+
+@media screen and (max-width: 768px) {
+    .floating-photo {
+        width: 30vw;
+    }
+
+    .floating-photo:nth-child(1) {
+        top: 5%;
+        left: 2%;
+    }
+
+    .floating-photo:nth-child(2) {
+        top: 15%;
+        right: 2%;
+    }
+
+    .floating-photo:nth-child(3) {
+        top: 40%;
+        left: 10%;
+    }
+
+    .floating-photo:nth-child(4) {
+        bottom: 10%;
+        right: 10%;
+    }
+
+    .floating-photo:nth-child(5) {
+        bottom: 15%;
+        left: 5%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .floating-photo {
+        width: 40vw;
+    }
+
+    .btn {
+        font-size: 18px;
+        padding: 10px 20px;
+    }
+}
+
+/* PETALS ANIMATIONS */
+.petal {
+    position: absolute;
+    width: 42px;
+    height: 42px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    animation-name: fall;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+.petal.spin {
+    animation-name: fall, spin;
+    animation-duration: 10s, 10s;
+}
+
+.petal.drift-left {
+    animation-name: fall, drift-left;
+    animation-duration: 10s, 10s;
+}
+
+.petal.drift-right {
+    animation-name: fall, drift-right;
+    animation-duration: 10s, 10s;
+}
+
+.petal.float-up {
+    animation-name: fall, float-up;
+    animation-duration: 10s, 5s;
+}
+
+@keyframes fall {
+    0% {
+        transform: translate(0, 0) scale(var(--scale)) rotate(0deg);
+    }
+    50% {
+        transform: translate(calc(var(--driftX) / 2), 50vh) scale(var(--scale)) rotate(calc(var(--rotate) / 2));
+    }
+    100% {
+        transform: translate(var(--driftX), 100vh) scale(var(--scale)) rotate(var(--rotate));
+        opacity: 0;
+    }
+}
+
+/* Keyframes for repulsive effect */
+@keyframes repulse {
+    0% {
+        transform: translate(0, 0) scale(var(--scale));
+    }
+    100% {
+        transform: translate(var(--repulseX), var(--repulseY)) scale(var(--scale));
+        opacity: 0;
+    }
+}
+
+

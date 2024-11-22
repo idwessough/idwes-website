@@ -963,3 +963,84 @@ body {
   background-color: #333333;
   color: #ffffff;
 }
+
+/* Example */
+.switch {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+/* Add necessary styles to position and style the switch */
+
+
+/* Ensure the interactive background is enabled by default */
+.check-checkbox:checked + .check-label #toggle-particles {
+  /* Add styles to enable the interactive background */
+  opacity: 1; /* Adjust as necessary */
+}
+
+/* Styling for the face */
+.face {
+  display: block;
+  position: absolute;
+  content: '';
+  top: 0.225rem;
+  right: 3.625rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 1.5rem;
+  background: linear-gradient(45deg, #dedede 0%, #fff 70%);
+  transition: all 0.225s ease-in-out;
+  overflow: hidden;
+  box-shadow: 0 0.15rem 0.15rem 0 rgba(0, 0, 0, 0.25);
+}
+
+/* Tears that appear when hovering and checkbox is checked */
+[type="checkbox"]:checked + .check-label:hover .face .eye.left::after,
+[type="checkbox"]:checked + .check-label:hover .face .eye.right::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 10px;
+    background-color: rgba(0, 150, 255, 0.8); /* Blue color for the tears */
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px); /* Positioning the tears */
+    animation: tear-drop 0.5s ease infinite; /* Animated drop */
+}
+
+/* Positioning tears for left and right eyes */
+[type="checkbox"]:checked + .check-label:hover .face .eye.left::after {
+  left: 20%;
+}
+
+[type="checkbox"]:checked + .check-label:hover .face .eye.right::after {
+  left: 80%;
+}
+
+/* Change mouth to a sad shape */
+#checkbox-container:hover .face .mouth {
+  border-radius: 50% 50% 0 0;
+  border-bottom: 5px solid rgb(202, 25, 25);
+  height: 15px;
+  width: 20px;
+  bottom: 15px;
+  transform: rotate(180deg);
+}
+
+/* Keyframes for tear-drop animation */
+@keyframes tear-drop {
+  0% {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+  }
+  100% {
+      transform: translateX(-50%) translateY(20px);
+      opacity: 0;
+  }
+/* Ensure the interactive background is enabled by default */
+.check-checkbox:checked + .check-label #toggle-particles {
+  opacity: 1;
+}
