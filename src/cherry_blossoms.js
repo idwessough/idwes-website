@@ -1,3 +1,17 @@
+// Variable to track petal effect state
+let petalEffectEnabled = true;
+
+// Function to enable or disable petal effect
+function togglePetalEffect(enabled) {
+    petalEffectEnabled = enabled;
+    console.log(`Petal effect enabled: ${petalEffectEnabled}`); // Log toggle state
+    if (!enabled) {
+        // Remove all existing petals
+        const petals = document.querySelectorAll('.petal');
+        petals.forEach(petal => petal.remove());
+    }
+}
+
 // Array of petal image URLs
 const petalImages = [
     '/assets/images/invitation/background/cherry_blossom.png', 
@@ -10,6 +24,8 @@ const petalImages = [
 
 // Function to create a petal
 function createPetal(x, y) {
+    if (!petalEffectEnabled) return;
+
     const petal = document.createElement('div');
     petal.classList.add('petal');
 
@@ -39,7 +55,7 @@ function createPetal(x, y) {
 
     // Remove petal after animation ends
     setTimeout(function () {
-        petal.parentElement.removeChild(petal);
+        petal.parentElement?.removeChild(petal);
     }, (duration + delay) * 1000);
 }
 
@@ -48,6 +64,8 @@ let lastSpawnTime = 0;
 const spawnInterval = 42; // Time in milliseconds between petal spawns
 
 document.addEventListener('mousemove', function (e) {
+    if (!petalEffectEnabled) return;
+
     const currentTime = Date.now();
     if (currentTime - lastSpawnTime > spawnInterval) {
         createPetal(e.clientX, e.clientY);
@@ -55,12 +73,30 @@ document.addEventListener('mousemove', function (e) {
     }
 });
 
-// Repulsive effect on click or touch
-function repulsePetals(event) {
-    event.preventDefault();
-    const x = event.clientX || event.touches[0].clientX;
-    const y = event.clientY || event.touches[0].clientY;
+// Event listener for the toggle checkbox
+document.getElementById('backgroundToggle').addEventListener('change', function (e) {
+    console.log(`Checkbox state changed: ${e.target.checked}`); // Log checkbox state
+    togglePetalEffect(e.target.checked);
+});
 
+
+// Repulsive effect on click or touch
+function repulsePetals(event) { 
+    // Check if the click target is an interactive element
+    const interactiveElements = ['A', 'BUTTON', 'INPUT', 'SELECT', 'TEXTAREA', 'LABEL'];
+    let targetElement = event.target;
+
+    while (targetElement) {
+        if (interactiveElements.includes(targetElement.tagName)) {
+            // Do not prevent default or repulse petals when clicking interactive elements
+            return;
+        }
+        targetElement = targetElement.parentElement;
+    } 
+
+    const x = event.clientX || (event.touches && event.touches[0].clientX);
+    const y = event.clientY || (event.touches && event.touches[0].clientY);
+  
     const petals = document.querySelectorAll('.petal');
 
     petals.forEach(petal => {

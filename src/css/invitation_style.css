@@ -1,19 +1,41 @@
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, rgba(106, 6, 152, 0.477), #8a2be2);
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg,rgba(56, 28, 116, 0.7), #4c00ff)
+}
+
+/* Import Montserrat font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
 body {
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
     background-image: url('/assets/images/invitation/background/photo_background.png'); /* invitation */
     background-size: cover;
-    background-position: center;
+    background-position: top;
     background-repeat: no-repeat;
     overflow-x: hidden;
-    height: 100vh; /* Full viewport height */
+    height: 142vh; /* Full viewport height scrollable page */
 }
 
 /* Portrait orientation */
 @media all and (orientation: portrait) {
     body {
-        background-image: url('/assets/images/invitation/background/mobile_background.webp');
+        background-image: url('/assets/images/invitation/background/photo_background.png'); /* mobile_background.webp */
     }
 }
 
@@ -86,17 +108,19 @@ body {
 /* Center button styling */
 .center-button {
     position: absolute;
-    top: 50%;
+    bottom: -29%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 0);
     z-index: 1;
     text-align: center;
 }
 
+
 .btn {
-    position: relative;
+    position: relative; 
+    text-align: center;
     display: inline-block;
-    padding: 15px 30px;
+    padding: 15px 42px; 
     font-size: 24px;
     color: #fff;
     text-decoration: none;
@@ -232,4 +256,105 @@ body {
     }
 }
 
+.beautiful-textboxca {
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    bottom: -20%;
+    background-color: #f9f9f970;
+    backdrop-filter: blur(42px) saturate(180%);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Montserrat', sans-serif;
+    max-width: 90%;
+    position: absolute; 
+    transform: translateX(-50%); 
+    text-align: center;
+    left: 50%;
+}
 
+.beautiful-textboxca h2 {
+    margin-top: 0;
+    color: #ededed;
+}
+
+.beautiful-textboxca ul {
+    padding-left: 20px;
+}
+
+.beautiful-textboxca ul li {
+    list-style-type: circle;
+    color: #444;
+    margin-bottom: 10px; 
+    padding: 1%; 
+}
+
+.beautiful-textboxca::before {
+    content: '\2708'; /* Plane symbol */
+    font-size: 24px;
+    color: #ffffff;
+    position: absolute;
+    top: -15px;
+    left: 20px;
+}
+
+.beautiful-textboxca::after {
+    content: '\1F338'; /* Cherry blossom symbol */
+    font-size: 24px;
+    color: #ffffff;
+    position: absolute;
+    bottom: -15px;
+    right: 20px;
+}
+
+
+.beautiful-textboxfr {
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    bottom: -20%;
+    background-color: #f9f9f970;
+    backdrop-filter: blur(42px) saturate(180%);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Montserrat', sans-serif;
+    max-width: 90%;
+    position: relative; 
+    transform: translateX(-50%); 
+    text-align: center;
+    left: 50%;
+}
+
+.beautiful-textboxfr h2 {
+    margin-top: 0;
+    color: #ededed;
+}
+
+.beautiful-textboxfr ul {
+    padding-left: 20px;
+}
+
+.beautiful-textboxfr ul li {
+    list-style-type: circle;
+    color: #444;
+    margin-bottom: 10px; 
+    padding: 1%; 
+}
+
+.beautiful-textboxfr::before {
+    content: '\2708'; /* Plane symbol */
+    font-size: 24px;
+    color: #ffffff;
+    position: absolute;
+    top: -15px;
+    left: 20px;
+}
+
+.beautiful-textboxfr::after {
+    content: '\1F338'; /* Cherry blossom symbol */
+    font-size: 24px;
+    color: #ffffff;
+    position: absolute;
+    bottom: -15px;
+    right: 20px;
+}
