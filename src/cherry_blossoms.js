@@ -14,12 +14,12 @@ function togglePetalEffect(enabled) {
 
 // Array of petal image URLs
 const petalImages = [
-    '/assets/images/invitation/background/cherry_blossom.png', 
-    '/assets/images/invitation/background/white_rose.png', 
-    '/assets/images/invitation/background/rose_petal.png', 
-    '/assets/images/invitation/background/white_petal.png', 
-    '/assets/images/invitation/background/single_pampa.png', 
-    '/assets/images/invitation/background/multi_pampas.png' 
+    '../assets/images/invitation/background/cherry_blossom.png', 
+    '../assets/images/invitation/background/white_rose.png', 
+    '../assets/images/invitation/background/rose_petal.png', 
+    '../assets/images/invitation/background/white_petal.png', 
+    '../assets/images/invitation/background/single_pampa.png', 
+    '../assets/images/invitation/background/multi_pampas.png' 
 ];
 
 // Function to create a petal

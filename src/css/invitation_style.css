@@ -24,7 +24,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
-    background-image: url('/assets/images/invitation/background/photo_background.png'); /* invitation */
+    background-image: url('../../assets/images/invitation/background/background_photo.png'); /* invitation */
     background-size: cover;
     background-position: top;
     background-repeat: no-repeat;
@@ -35,7 +35,7 @@ body {
 /* Portrait orientation */
 @media all and (orientation: portrait) {
     body {
-        background-image: url('/assets/images/invitation/background/photo_background.png'); /* mobile_background.webp */
+        background-image: url('../../assets/images/invitation/background/photo_background.png'); /* mobile_background.webp */
     }
 }
 
@@ -288,6 +288,16 @@ body {
     margin-bottom: 10px; 
     padding: 1%; 
 }
+.beautiful-textboxca .image-container img {
+    max-width: 100%; /* Makes sure the image doesn't exceed the width of its container */
+    max-height: 400px; /* Limits the height to 400px, adjust as needed */
+    width: auto; /* Keeps the aspect ratio intact */
+    height: auto; /* Keeps the aspect ratio intact */
+    object-fit: contain; /* Ensures the image fits well within its limits */
+    display: block; /* Avoids inline space below the image */
+    margin: 0 auto; /* Centers the image if needed */
+}
+
 
 .beautiful-textboxca::before {
     content: '\2708'; /* Plane symbol */
